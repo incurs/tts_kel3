@@ -1,16 +1,16 @@
-# Body Mass Index App SoFit By C23-PS233 Capstone Project Bangkit 2023 #
+# Text to Speech App #
 
 
 
 # About 
-Application for the health of your body and provide recommendations based on your BMI.
+Text to Speech
 
 ## Requirements
 
-To run the Kotlin APK, you need:
+To run the JAVA APK, you need:
 
 - An Android device or emulator running Android OS.
-- Kotlin SDK and build tools installed on your development environment.
+- JAVA SDK and build tools installed on your development environment.
 - Android Studio or another compatible IDE.
 
 ## Setup and Installation
@@ -18,7 +18,7 @@ To run the Kotlin APK, you need:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/sofit-c23-ps233/SoFit-androidApp.git
+   git clone https://github.com/incurs/tts_kel3.git
    ```
 
 2. Open the project in your preferred IDE (e.g., Android Studio).
