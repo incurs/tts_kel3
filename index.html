@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text-to-Speech Demo</title>
+  </head>
+  <body>
+    <textarea id="textInput" placeholder="Enter text..."></textarea>
+    <button onclick="synthesizeText()">Synthesize</button>
+    <audio id="audioPlayer" controls></audio>
+
+    <script>
+      async function synthesizeText() {
+        const textInput = document.getElementById("textInput").value;
+
+        const response = await fetch("http://localhost:3000/text-to-speech", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: textInput }),
+        });
+
+        const audioData = await response.text();
+        const audioPlayer = document.getElementById("audioPlayer");
+
+        // Convert base64 audio data to Blob and set it as the audio source
+        const blob = new Blob(
+          [
+            new Uint8Array(
+              atob(audioData)
+                .split("")
+                .map((char) => char.charCodeAt(0))
+            ),
+          ],
+          { type: "audio/wav" }
+        );
+        const audioUrl = URL.createObjectURL(blob);
+
+        audioPlayer.src = audioUrl;
+      }
+    </script>
+  </body>
+</html>
